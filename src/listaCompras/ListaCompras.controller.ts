@@ -12,7 +12,7 @@ export class ListaComprasController {
   }
 
   @Post()
-  async insert(@Body() listaCompras: ListaCompras) {
+  async insert(@Body() listaCompras: ListaCompras): Promise<ListaCompras> {
     return await this.listaComprasService.insert(listaCompras);
   }
 

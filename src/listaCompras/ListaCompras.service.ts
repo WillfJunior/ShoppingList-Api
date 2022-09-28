@@ -12,8 +12,8 @@ export class ListaComprasService {
     return await this.listaComprasRepository.findAll<ListaCompras>();
   }
 
-  async insert(listaCompra: ListaCompras) {
-    await this.listaComprasRepository.create<ListaCompras>({
+  async insert(listaCompra: ListaCompras): Promise<ListaCompras> {
+    return await this.listaComprasRepository.create<ListaCompras>({
       produto: listaCompra.produto,
     });
   }
