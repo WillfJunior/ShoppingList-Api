@@ -7,11 +7,11 @@ export const databaseProviders = [
     useFactory: async () => {
       const sequelize = new Sequelize({
         dialect: 'mysql',
-        host: 'mysql22.redehost.com.br',
-        port: 41890,
-        username: 'willfjr86',
-        password: 'K@ua1011',
-        database: 'projetofamilia',
+        host: process.env.HOST,
+        port: parseInt(process.env.PORT),
+        username: process.env.USER,
+        password: process.env.PASSWORD,
+        database: process.env.DB,
       });
       sequelize.addModels([ListaCompras]);
       await sequelize.sync();
